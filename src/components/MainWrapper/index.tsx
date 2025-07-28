@@ -5,7 +5,6 @@ import { MoodCard } from "../MoodCard";
 import "./index.scss";
 
 export const MainWrapper = () => {
-	// Zmieniamy stan, żeby przechowywał playlistId zamiast text
 	const [selectedPlaylistId, setSelectedPlaylistId] = useState<string | null>(
 		null
 	);
@@ -25,9 +24,10 @@ export const MainWrapper = () => {
 				))}
 			</ul>
 			{selectedPlaylistId && (
-				// Przekazujemy playlistId (jako number konwertujemy, bo w hooku jest number)
 				<MusicPlayer playlistId={Number(selectedPlaylistId)} />
 			)}
 		</main>
 	);
 };
+
+export default MainWrapper;

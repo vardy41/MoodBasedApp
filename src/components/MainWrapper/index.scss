@@ -1,19 +1,33 @@
+@use "../../styles/mixins" as *;
+
 .main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	min-height: 100vh;
+
 	&_heading {
 		margin: 0 0 3rem 0;
 		font-size: 2.2rem;
 		font-weight: bold;
 		color: white;
+		@include respond(md) {
+			font-size: 3rem;
+		}
 	}
 	&_list {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
 		padding: 0 1rem;
+		width: 70%;
 		gap: 1rem;
+		@include respond(md) {
+			padding: 0 4rem;
+		}
+		@include respond(lg) {
+			width: 80%;
+			padding: 0rem 0rem;
+		}
 	}
 }

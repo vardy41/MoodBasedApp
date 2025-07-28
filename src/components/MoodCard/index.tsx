@@ -9,3 +9,4 @@ export const MoodCard = ({ text, emoticon, color, onClick }: MoodCardProps) => {
 		</li>
 	);
 };
+export default MoodCard;

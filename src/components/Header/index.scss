@@ -10,8 +10,13 @@
 		font-size: 3.5rem;
 		color: white;
 		margin: 0 0 2rem 0;
+
 		@include respond(sm) {
-			font-size: 4rem;
+			font-size: 4.5rem;
+		}
+
+		@include respond(md) {
+			font-size: 6rem;
 		}
 	}
 	&_paragraph {

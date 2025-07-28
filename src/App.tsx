@@ -1,11 +1,10 @@
 import "../src/styles/global.scss";
-import { Header } from "./components/Header";
-import { MainWrapper } from "./components/MainWrapper";
+
+import { Layout } from "./Layout";
 function App() {
 	return (
 		<>
-			<Header />
-			<MainWrapper />
+			<Layout />
 		</>
 	);
 }
