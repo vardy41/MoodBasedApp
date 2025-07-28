@@ -2,7 +2,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
+	min-height: 100vh;
 	&_heading {
 		margin: 0 0 3rem 0;
 		font-size: 2.2rem;
