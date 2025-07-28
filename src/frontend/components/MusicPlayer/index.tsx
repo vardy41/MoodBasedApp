@@ -18,11 +18,7 @@ export const MusicPlayer = ({ playlistId }: MusicPlayerProps) => {
 						<p className="music_player_list-item-paragraph">
 							{track.title} – {track.artist.name}
 						</p>
-						{track.preview ? (
-							<audio controls src={track.preview}></audio>
-						) : (
-							<p className="unavailable">Podgląd niedostępny</p>
-						)}
+						<audio controls src={track.preview}></audio>
 					</li>
 				))}
 			</ul>
