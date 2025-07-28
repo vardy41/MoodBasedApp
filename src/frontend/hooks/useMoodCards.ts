@@ -10,12 +10,10 @@ export const useMoodCards = (playlistId: number) => {
 		const fetchData = async () => {
 			try {
 				setLoading(true);
-
 				const res = await fetch(`${backendUrl}/api/playlist/${playlistId}`);
-
 				if (!res.ok) throw new Error("Błąd pobierania danych");
 				const json = await res.json();
-				setData(json.tracks.data); // <- lista utworów
+				setData(json.tracks.data);
 			} catch (err: any) {
 				setError(err.message || "Coś poszło nie tak");
 			} finally {
