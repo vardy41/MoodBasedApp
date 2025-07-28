@@ -1,5 +1,4 @@
-import "../frontend/styles/global.scss";
-
+import "./global.scss";
 import { Layout } from "./frontend/Layout";
 function App() {
 	return (
