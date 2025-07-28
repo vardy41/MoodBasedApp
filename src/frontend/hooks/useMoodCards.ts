@@ -26,7 +26,7 @@ export const useMoodCards = (playlistId: number) => {
 		if (playlistId) {
 			fetchData();
 		}
-	}, [playlistId]);
+	}, [playlistId, backendUrl]);
 
 	return { data, loading, error };
 };
