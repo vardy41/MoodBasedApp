@@ -1,8 +1,6 @@
 import "./index.scss";
 import { useMoodCards } from "../../hooks/useMoodCards";
-interface MusicPlayerProps {
-	playlistId: number;
-}
+import type { MusicPlayerProps } from "../../types/types";
 
 export const MusicPlayer = ({ playlistId }: MusicPlayerProps) => {
 	const { data, loading, error } = useMoodCards(playlistId);
@@ -17,7 +15,9 @@ export const MusicPlayer = ({ playlistId }: MusicPlayerProps) => {
 			<ul className="music_player_list">
 				{data.map((track) => (
 					<li className="music_player_list-item" key={track.id}>
-						<strong>{track.title}</strong> – {track.artist.name}
+						<p className="music_player_list-item-paragraph">
+							{track.title} – {track.artist.name}
+						</p>
 						<audio controls src={track.preview}></audio>
 					</li>
 				))}

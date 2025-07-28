@@ -3,9 +3,17 @@
 	flex-direction: column;
 	align-items: center;
 	width: 90%;
-	background-color: gray;
-	border-radius: 20px 20px 20px 20px;
+	background-color: oklch(71.2% 0.194 13.428);
+	padding: 2rem;
+	border-radius: 20px;
 	margin-top: 5rem;
+	opacity: 80%;
+
+	&_heading {
+		margin-bottom: 2rem;
+		font-size: 2rem;
+		color: white;
+	}
 
 	&_list {
 		display: flex;
@@ -13,16 +21,17 @@
 		align-items: center;
 		gap: 2rem;
 		width: 90%;
-		justify-items: center;
 		list-style: none;
 		text-align: center;
-	}
-	&_heading {
-		margin-bottom: 2rem;
-		font-size: 2rem;
-		color: white;
-	}
-	strong {
-		margin: 1rem 0 1rem 0;
+
+		&-item {
+			color: white;
+			font-weight: bold;
+
+			&-paragraph {
+				margin: 0 0 1rem 0;
+				color: white;
+			}
+		}
 	}
 }
