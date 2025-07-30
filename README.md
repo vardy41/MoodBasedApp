@@ -1,69 +1,66 @@
-# React + TypeScript + Vite
+🎵 Mood-Based Music App
+A full-stack music web application that dynamically plays playlists based on your mood. It uses the Deezer API to fetch mood-specific music, with a custom backend proxy and a clean, modern frontend UI.
+🟢 Live demo: https://moodbasedapp.netlify.app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tech Stack:
 
-Currently, two official plugins are available:
+Frontend: React, TypeScript, Vite, React Query, SCSS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Backend: Node.js, Express (hosted on Render)
 
-## Expanding the ESLint configuration
+Data Source: Deezer API
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Deployment: Netlify (frontend), Render (backend)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Project Structure:
+mood-based/
+├── frontend/ # React + Vite frontend app
+├── server/ # Node.js + Express backend
+├── package.json # Combined dependencies
+├── README.md
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+Installation:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Clone the repository:
+git clone https://github.com/your-username/mood-based.git
+cd mood-based
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Install all dependencies:
+npm install
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Running Locally:
+You only need to run the frontend locally. The backend is hosted on Render.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Start the frontend:
+cd frontend
+npm run dev
+
+The app will run at http://localhost:5173
+
+Create a .env file inside the frontend/ directory with the following content:
+VITE_BACKEND_URL=https://your-backend.onrender.com
+
+If you prefer to run the backend locally:
+cd server
+node server.js
+It will run at http://localhost:3001
+
+Features:
+
+Mood-based playlist selection
+
+React Query data prefetching and caching
+
+SCSS styling
+
+Audio previews using HTML5 <audio>
+
+Optimized network usage (prefetch on first hover)
+
+Backend proxy for Deezer API with CORS protection
+
+Deployment:
+
+Frontend: https://moodbasedapp.netlify.app
+
+Backend: https://your-backend.onrender.com
