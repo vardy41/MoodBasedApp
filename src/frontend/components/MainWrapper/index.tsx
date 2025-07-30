@@ -15,10 +15,13 @@ export const MainWrapper = () => {
 	const queryClient = useQueryClient();
 
 	const handleMouseEnter = (playlistId: number) => {
-		queryClient.prefetchQuery({
-			queryKey: ["playlist", playlistId],
-			queryFn: () => fetchPlayList(playlistId),
-		});
+		const cached = queryClient.getQueryData(["playlist", playlistId]);
+		if (!cached) {
+			queryClient.prefetchQuery({
+				queryKey: ["playlist", playlistId],
+				queryFn: () => fetchPlayList(playlistId),
+			});
+		}
 	};
 
 	return (
