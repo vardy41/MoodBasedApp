@@ -1,3 +1,5 @@
+// src/components/MainWrapper/index.tsx
+
 import { fetchPlayList } from "../../hooks/useMoodCards";
 import { useQueryClient } from "@tanstack/react-query";
 import { MusicPlayer } from "../MusicPlayer";
@@ -7,16 +9,15 @@ import { MoodCard } from "../MoodCard";
 import "./index.scss";
 
 export const MainWrapper = () => {
-	const [selectedPlaylistId, setSelectedPlaylistId] = useState<string | null>(
+	const [selectedPlaylistId, setSelectedPlaylistId] = useState<number | null>(
 		null
 	);
 	const queryClient = useQueryClient();
 
-	const handleMouseEnter = (playlistId: string) => {
-		const id = Number(playlistId);
+	const handleMouseEnter = (playlistId: number) => {
 		queryClient.prefetchQuery({
-			queryKey: ["playlist", id],
-			queryFn: () => fetchPlayList(id),
+			queryKey: ["playlist", playlistId],
+			queryFn: () => fetchPlayList(playlistId),
 		});
 	};
 
@@ -35,9 +36,7 @@ export const MainWrapper = () => {
 					/>
 				))}
 			</ul>
-			{selectedPlaylistId && (
-				<MusicPlayer playlistId={Number(selectedPlaylistId)} />
-			)}
+			{selectedPlaylistId && <MusicPlayer playlistId={selectedPlaylistId} />}
 		</main>
 	);
 };

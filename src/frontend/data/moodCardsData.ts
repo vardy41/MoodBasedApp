@@ -1,51 +1,59 @@
-export const moodCardsData = [
+// src/data/moodCardsData.ts
+
+export type MoodCardData = {
+	text: string;
+	emoticon: string;
+	color: string;
+	playlistId: number;
+};
+
+export const moodCardsData: MoodCardData[] = [
 	{
 		text: "Radosny",
-		color: "yellow",
 		emoticon: "😊",
-		playlistId: "1479458365",
+		color: "yellow",
+		playlistId: 1479458365,
 	},
 	{
 		text: "Smutny",
-		color: "blue",
 		emoticon: "😢",
-		playlistId: "1910358422",
+		color: "blue",
+		playlistId: 1910358422,
 	},
 	{
 		text: "Energiczny",
-		color: "salmon",
 		emoticon: "⚡",
-		playlistId: "2578576804",
+		color: "salmon",
+		playlistId: 2578576804,
 	},
-
 	{
 		text: "Zrelaksowany",
-		color: "green",
 		emoticon: "😌",
-		playlistId: "1290316405",
+		color: "green",
+		playlistId: 1290316405,
 	},
 	{
 		text: "Romantyczny",
-		color: "rose",
 		emoticon: "❤️",
-		playlistId: "1605532135",
+		color: "rose",
+		playlistId: 1605532135,
 	},
 	{
 		text: "Skupiony",
-		color: "purple",
 		emoticon: "🧠",
-		playlistId: "8749343942",
+		color: "purple",
+		playlistId: 8749343942,
 	},
 	{
 		text: "Zły",
-		color: "orange",
 		emoticon: "😠",
-		playlistId: "7223922264",
+		color: "orange",
+		playlistId: 7223922264,
 	},
 	{
 		text: "Senny",
-		color: "indigo",
 		emoticon: "😴",
-		playlistId: "8763295642",
+		color: "indigo",
+		playlistId: 8763295642,
 	},
 ];
