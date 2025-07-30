@@ -1,30 +1,26 @@
-import { useEffect, useState } from "react";
 import type { TrackProps } from "../types/types";
+import { useQuery } from "@tanstack/react-query";
+
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
+export const fetchPlayList = async (
+	playlistId: number
+): Promise<TrackProps[]> => {
+	const res = await fetch(`${backendUrl}/api/playList/${playlistId}`);
+	if (!res.ok) throw new Error("Błąd pobierania danych");
+	const json = await res.json();
+	return json.tracks.data;
+};
 
 export const useMoodCards = (playlistId: number) => {
-	const [data, setData] = useState<TrackProps[]>([]);
-	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState<string | null>(null);
-	const backendUrl = import.meta.env.VITE_BACKEND_URL;
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				setLoading(true);
-				const res = await fetch(`${backendUrl}/api/playlist/${playlistId}`);
-				if (!res.ok) throw new Error("Błąd pobierania danych");
-				const json = await res.json();
-				setData(json.tracks.data);
-			} catch (err: any) {
-				setError(err.message || "Coś poszło nie tak");
-			} finally {
-				setLoading(false);
-			}
-		};
-
-		if (playlistId) {
-			fetchData();
-		}
-	}, [playlistId, backendUrl]);
-
-	return { data, loading, error };
+	const query = useQuery({
+		queryKey: ["playlist", playlistId],
+		queryFn: () => fetchPlayList(playlistId),
+		staleTime: 1000 * 60 * 5, // cache 5 minut
+	});
+	return {
+		data: query.data || [],
+		loading: query.isLoading,
+		error: query.error?.message ?? null,
+	};
 };
