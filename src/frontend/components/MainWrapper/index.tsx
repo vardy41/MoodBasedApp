@@ -19,7 +19,6 @@ export const MainWrapper = () => {
 			queryKey: ["playlist", playlistId],
 			queryFn: () => fetchPlayList(playlistId),
 		});
-		console.log("najechałes");
 	};
 
 	return (
