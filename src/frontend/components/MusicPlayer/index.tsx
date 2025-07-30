@@ -13,14 +13,16 @@ export const MusicPlayer = ({ playlistId }: MusicPlayerProps) => {
 		<div className="music_player">
 			<h3 className="music_player_heading">Playlista</h3>
 			<ul className="music_player_list">
-				{data.map((track) => (
-					<li className="music_player_list-item" key={track.id}>
-						<p className="music_player_list-item-paragraph">
-							{track.title} – {track.artist.name}
-						</p>
-						<audio controls src={track.preview}></audio>
-					</li>
-				))}
+				{data
+					.filter((track) => track && track.preview)
+					.map((track) => (
+						<li key={track.id} className="music_player_list-item">
+							<p className="music_player_list-item-paragraph">
+								{track.title} – {track.artist.name}
+							</p>
+							<audio controls src={track.preview}></audio>
+						</li>
+					))}
 			</ul>
 		</div>
 	);

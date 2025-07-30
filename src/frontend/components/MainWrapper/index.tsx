@@ -12,10 +12,11 @@ export const MainWrapper = () => {
 	);
 	const queryClient = useQueryClient();
 
-	const handleMouseEnter = (playlistId: number) => {
+	const handleMouseEnter = (playlistId: string) => {
+		const id = Number(playlistId);
 		queryClient.prefetchQuery({
-			queryKey: ["playlist", Number(playlistId)],
-			queryFn: () => fetchPlayList(Number(playlistId)),
+			queryKey: ["playlist", id],
+			queryFn: () => fetchPlayList(id),
 		});
 	};
 
