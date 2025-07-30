@@ -3,6 +3,7 @@ export type MoodCardProps = {
 	color: string;
 	emoticon: string;
 	onClick: () => void;
+	onMouseEnter?: () => void;
 };
 export type TrackProps = {
 	id: number;
