@@ -47,9 +47,6 @@ npm run dev
 
 The app will run at http://localhost:5173
 
-Create a `.env` file inside the frontend/ directory with the following content:  
-VITE_BACKEND_URL=https://your-backend.onrender.com
-
 ---
 
 ### If you prefer to run the backend locally:
