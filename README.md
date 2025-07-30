@@ -71,5 +71,5 @@ It will run at http://localhost:3001
 
 ### Deployment:
 
-Frontend: [https://moodbasedapp.netlify.app  ](https://www.netlify.com/)
-Backend: [https://your-backend.onrender.com](https://render.com/)
+Frontend: https://www.netlify.com/
+Backend: https://render.com/
